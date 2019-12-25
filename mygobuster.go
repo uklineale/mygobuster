@@ -83,6 +83,10 @@ func main() {
 	hostPtr := flag.String("host", "https://sans.org/", "The hostname to scan")
 	wordlistPtr := flag.String("wordlist", "./wordlist.txt", "Path to the wordlist file (newline delimited)")
 
+	flag.Parse()
+
+	fmt.Println("Scanning " + *hostPtr)
+
 	words := loadWords(*wordlistPtr)
 	results := processWords(words, *hostPtr, &wg)
 
